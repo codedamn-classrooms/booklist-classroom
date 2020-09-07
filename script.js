@@ -22,6 +22,15 @@ const defaultBooks = [
 
 // UI Class: Handle UI Tasks
 class UI {
+	static clearFields() {
+		const author = document.getElementById('author')
+		const title = document.getElementById('title')
+		const isbn = document.getElementById('isbn')
+		author.value = ''
+		title.value = ''
+		isbn.value = ''
+	}
+
 	static displayBooks() {
 		defaultBooks.forEach((book) => UI.addBookToList(book))
 	}
@@ -64,4 +73,5 @@ function addABook(e) {
 	UI.addBookToList(book)
 
 	// Clear fields
+	UI.clearFields()
 }
