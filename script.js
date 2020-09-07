@@ -27,6 +27,10 @@ class UI {
 		div.innerText = message
 		div.className = `alert alert-${className}`
 		document.getElementById('book-form').prepend(div)
+
+		setTimeout(() => {
+			div.remove()
+		}, 2000)
 	}
 
 	static deleteBook(target) {
@@ -80,6 +84,7 @@ function addABook(e) {
 	const isbn = document.getElementById('isbn').value
 
 	if (!author || !title || !isbn) {
+		UI.showAlert('Please enter correct details', 'danger')
 		return
 	}
 
@@ -89,6 +94,8 @@ function addABook(e) {
 	// Add book object to UI
 	UI.addBookToList(book)
 
+	UI.showAlert('Book Added', 'success')
+
 	// Clear fields
 	UI.clearFields()
 }
@@ -96,4 +103,5 @@ function addABook(e) {
 document.getElementById('book-list').addEventListener('click', handleRemove)
 function handleRemove(e) {
 	UI.deleteBook(e.target)
+	UI.showAlert('Book Removed', 'success')
 }
