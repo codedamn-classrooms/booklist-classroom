@@ -51,4 +51,10 @@ document.querySelector('#book-form').addEventListener('submit', addABook, false)
 function addABook(e) {
 	// prevent actual submission
 	e.preventDefault()
+
+	// Get Form Values
+
+	// Instantiate a new Book object
+
+	// Add book object to UI
 }
