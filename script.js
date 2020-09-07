@@ -53,8 +53,13 @@ function addABook(e) {
 	e.preventDefault()
 
 	// Get Form Values
+	const author = document.getElementById('author').value
+	const title = document.getElementById('title').value
+	const isbn = document.getElementById('isbn').value
 
 	// Instantiate a new Book object
+	const book = new Book(title, author, isbn)
 
 	// Add book object to UI
+	UI.addBookToList(book)
 }
