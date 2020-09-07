@@ -22,6 +22,12 @@ const defaultBooks = [
 
 // UI Class: Handle UI Tasks
 class UI {
+	static deleteBook() {
+		if (target.classList.contains('delete')) {
+			target.parentElement.parentElement.remove()
+		}
+	}
+
 	static clearFields() {
 		const author = document.getElementById('author')
 		const title = document.getElementById('title')
@@ -74,4 +80,9 @@ function addABook(e) {
 
 	// Clear fields
 	UI.clearFields()
+}
+
+document.getElementById('book-list').addEventListener('click', handleRemove)
+function handleRemove(e) {
+	UI.deleteBook(e.target)
 }
