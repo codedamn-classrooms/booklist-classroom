@@ -25,6 +25,7 @@ class UI {
 	static displayBooks() {
 		defaultBooks.forEach((book) => UI.addBookToList(book))
 	}
+
 	static addBookToList(book) {
 		const list = document.getElementById('book-list')
 
@@ -41,4 +42,10 @@ class UI {
 	}
 }
 
+// Event: Display Books
 UI.displayBooks()
+
+// Event: Add a Book
+document.querySelector('#book-form').addEventListener('submit', addABook, false)
+
+function addABook() {}
