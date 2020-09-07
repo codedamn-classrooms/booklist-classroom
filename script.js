@@ -48,4 +48,7 @@ UI.displayBooks()
 // Event: Add a Book
 document.querySelector('#book-form').addEventListener('submit', addABook, false)
 
-function addABook() {}
+function addABook(e) {
+	// prevent actual submission
+	e.preventDefault()
+}
