@@ -7,6 +7,12 @@ class Book {
 	}
 }
 
+class Store {
+	static addBook() {}
+	static removeBook() {}
+	static getBooks() {}
+}
+
 const defaultBooks = [
 	{
 		title: 'Book 1',
