@@ -26,7 +26,7 @@ class UI {
 		const div = document.createElement('div')
 		div.innerText = message
 		div.className = `alert alert-${className}`
-		document.getElementById('book-form').appendChild(div)
+		document.getElementById('book-form').prepend(div)
 	}
 
 	static deleteBook(target) {
