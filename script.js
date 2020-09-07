@@ -22,12 +22,12 @@ const defaultBooks = [
 
 // UI Class: Handle UI Tasks
 class UI {
-	static deleteBook() {
+	static deleteBook(target) {
 		if (target.classList.contains('delete')) {
+			// we clicked the X icon
 			target.parentElement.parentElement.remove()
 		}
 	}
-
 	static clearFields() {
 		const author = document.getElementById('author')
 		const title = document.getElementById('title')
