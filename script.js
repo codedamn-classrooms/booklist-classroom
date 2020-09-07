@@ -8,23 +8,16 @@ class Book {
 }
 
 class Store {
-	static addBook() {}
-	static removeBook() {}
-	static getBooks() {}
-}
+	static addBook(book) {
 
-const defaultBooks = [
-	{
-		title: 'Book 1',
-		author: 'Brad Traversy',
-		isbn: '12345'
-	},
-	{
-		title: 'Book 2',
-		author: 'Mehul Mohan',
-		isbn: '6789'
-	}
-]
+    }
+	static removeBook(isbn) {
+
+    }
+	static getBooks() {
+        
+    }
+}
 
 // UI Class: Handle UI Tasks
 class UI {
@@ -55,7 +48,8 @@ class UI {
 	}
 
 	static displayBooks() {
-		defaultBooks.forEach((book) => UI.addBookToList(book))
+		const books = Store.getBooks()
+		books.forEach((book) => UI.addBookToList(book))
 	}
 
 	static addBookToList(book) {
@@ -100,6 +94,9 @@ function addABook(e) {
 	// Add book object to UI
 	UI.addBookToList(book)
 
+	// Add book to store
+	Store.addBook(book)
+
 	UI.showAlert('Book Added', 'success')
 
 	// Clear fields
@@ -108,6 +105,10 @@ function addABook(e) {
 
 document.getElementById('book-list').addEventListener('click', handleRemove)
 function handleRemove(e) {
+	// Remove book from UI
 	UI.deleteBook(e.target)
 	UI.showAlert('Book Removed', 'success')
+
+	// Remove book from store
+	Store.removeBook(e.target.parentElement.previousElementSibling.textContent)
 }
