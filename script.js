@@ -62,4 +62,6 @@ function addABook(e) {
 
 	// Add book object to UI
 	UI.addBookToList(book)
+
+	// Clear fields
 }
