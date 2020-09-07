@@ -22,6 +22,13 @@ const defaultBooks = [
 
 // UI Class: Handle UI Tasks
 class UI {
+	static showAlert(message, className) {
+		const div = document.createElement('div')
+		div.innerText = message
+		div.className = `alert alert-${className}`
+		document.getElementById('book-form').appendChild(div)
+	}
+
 	static deleteBook(target) {
 		if (target.classList.contains('delete')) {
 			// we clicked the X icon
@@ -71,6 +78,10 @@ function addABook(e) {
 	const author = document.getElementById('author').value
 	const title = document.getElementById('title').value
 	const isbn = document.getElementById('isbn').value
+
+	if (!author || !title || !isbn) {
+		return
+	}
 
 	// Instantiate a new Book object
 	const book = new Book(title, author, isbn)
